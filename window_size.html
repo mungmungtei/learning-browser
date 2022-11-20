@@ -21,15 +21,13 @@
       const sizeBox = document.querySelector(".size-box");
       function checkWindowSize() {
         sizeBox.innerHTML = `
-      window.size -> ${window.screen.width}, ${screen.height} <br/>
+      window.size -> ${screen.width}, ${screen.height} <br/>
       window.outer -> ${outerWidth}, ${outerHeight} <br/>
       window.inner -> ${innerWidth}, ${innerHeight} <br/>
       documentElement.clientWidth -> ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
       `;
       }
-      window.addEventListener("resize", () => {
-        checkWindowSize();
-      });
+      window.addEventListener("resize", checkWindowSize);
       checkWindowSize();
     </script>
   </body>
