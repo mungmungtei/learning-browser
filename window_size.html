@@ -5,6 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Window Size</title>
+    <style>
+      .size-box {
+        background-color: coral;
+        display: inline-block;
+        font-size: 24px;
+        color: whitesmoke;
+        padding: 16px;
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="size-box">Size Box</div>
+    <script>
+      const sizeBox = document.querySelector(".size-box");
+      function checkWindowSize() {
+        sizeBox.innerHTML = `
+      window.size -> ${window.screen.width}, ${screen.height} <br/>
+      window.outer -> ${outerWidth}, ${outerHeight} <br/>
+      window.inner -> ${innerWidth}, ${innerHeight} <br/>
+      documentElement.clientWidth -> ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}
+      `;
+      }
+      window.addEventListener("resize", () => {
+        checkWindowSize();
+      });
+      checkWindowSize();
+    </script>
+  </body>
 </html>
