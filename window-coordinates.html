@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window coordinates</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      div {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 15px;
+        margin-left: 20px;
+      }
+
+      .plain {
+        background-color: blanchedalmond;
+      }
+
+      .test {
+        background-color: palevioletred;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="test"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+  </body>
+  <script>
+    const test = document.querySelector(".test");
+
+    function printMousePosition(event) {
+      const rectInfo = test.getBoundingClientRect();
+      console.log(rectInfo);
+      console.log(`clientX: ${event.clientX}, clientY: ${event.clientY}`);
+      console.log(`pageX: ${event.pageX}, pageY: ${event.pageY}`);
+    }
+
+    document.addEventListener("click", printMousePosition);
+  </script>
+</html>
