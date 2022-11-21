@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window scrolling</title>
+    <style>
+      * {
+        margin: 0;
+      }
+
+      div {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 15px;
+        margin-left: 20px;
+      }
+
+      .plain {
+        background-color: blanchedalmond;
+      }
+
+      .test {
+        background-color: palevioletred;
+      }
+
+      .btn-group {
+        position: fixed;
+        top: 8px;
+        right: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="test"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+    <div class="plain"></div>
+
+    <nav class="btn-group">
+      <button class="scrollBy">Scroll by 100px(y)</button>
+      <button class="scrollTo">Scroll to 100px(y)</button>
+      <button class="scrollInto">Scroll into test</button>
+    </nav>
+  </body>
+  <script>
+    // 브라우저 좌표 찾기
+    const test = document.querySelector(".test");
+
+    function printMousePosition(event) {
+      const rectInfo = test.getBoundingClientRect();
+      console.log(rectInfo);
+      console.log(`clientX: ${event.clientX}, clientY: ${event.clientY}`);
+      console.log(`pageX: ${event.pageX}, pageY: ${event.pageY}`);
+    }
+
+    document.addEventListener("click", printMousePosition);
+
+    // 버튼 클릭 시, 자동 스크롤 실행
+    const scrollBy = document.querySelector(".scrollBy");
+    const scrollTo = document.querySelector(".scrollTo");
+    const scrollInto = document.querySelector(".scrollInto");
+    // const testTop = test.offsetTop;
+
+    scrollBy.addEventListener("click", () => {
+      window.scrollBy({ top: 100, behavior: "smooth" });
+    });
+
+    scrollTo.addEventListener("click", () => {
+      window.scrollTo({ top: 100, behavior: "smooth" });
+    });
+
+    scrollInto.addEventListener("click", () => {
+      // window.scrollTo({ top: testTop, behavior: "smooth" });
+      // 위의 코드와 똑같이 동작한다.
+      test.scrollIntoView({ behavior: "smooth" });
+    });
+  </script>
+</html>
