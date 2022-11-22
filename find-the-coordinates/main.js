@@ -22,7 +22,7 @@ window.addEventListener("load", () => {
     // coordinates.style.top = `${y}px`;
     // coordinates.style.left = `${x}px`;
 
-    // ✨ translate를 이용한 성능 개선
+    // ✨ translate()를 이용한 성능 개선
     horizontal.style.transform = `translateY(${y}px)`;
     vertical.style.transform = `translateX(${x}px)`;
     target.style.transform = `translate(${x - targetHalfWidth}px, ${
